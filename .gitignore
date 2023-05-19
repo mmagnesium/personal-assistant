@@ -1,0 +1,8 @@
+./*.DS_Store
+models/*
+files/*
+db/*
+*__pycache__*
+.env
+.python-version
+misc/*
