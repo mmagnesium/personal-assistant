@@ -3,6 +3,17 @@
 Partially based on the [privateGPT](https://github.com/imartinez/privateGPT) project.
 However, the main chain was written from scratch to speed up the inference. Not sure why LangChains implementation is so slow, like 25 seconds of prompt evaluatuion in LlamaCpp model (vs. 2-4 seconds when queried directly)
 
+The main retrieval chain logic:
+
+1. Given user question, the retrival agent:
+   - gets the most relevant documents from the vector DB,
+   - processes them, and
+   - answers the question based on the context documents
+2. Given the retrievers' response, the context and the question, the reviewer agent:
+   - reviewes the retrievers' respond with respect to the context and user question
+   - imporoves it, and
+   - returns to the user
+
 ## Installation
 
 Download the desired model from <https://huggingface.co/> to the `models` folder. For now, the model should be in the `ggml` format to be compatible with LlaMaCpp model interface.
