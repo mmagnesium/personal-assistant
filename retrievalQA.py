@@ -4,14 +4,14 @@ from pa.llm import LlamaLLM
 # Parameters
 model_path="./models/wizard-mega-13B.ggml.q4_0.bin"
 max_tokens=1024
-temperature_retrieval=0.2
+temperature_retriever=0.2
 temperature_reviewer=0.2
 context_size = 4096
 n_gpu_layers = 40
 stream = True
 # Agent configs
 config_retriever = {'max_tokens': max_tokens,
-                    'temperature': temperature_retrieval,
+                    'temperature': temperature_retriever,
                     'stream': stream}
 
 config_reviewer = {'max_tokens': max_tokens,
