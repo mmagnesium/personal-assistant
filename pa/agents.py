@@ -1,7 +1,7 @@
 from abc import ABC, abstractmethod
 
 from pa.constants import retriever_tempate, resolver_template
-from pa.llm import LLM
+from pa.llm.base import LLM
 from pa.constants import PERSIST_DIRECTORY
 
 from langchain.embeddings import HuggingFaceInstructEmbeddings

@@ -1,15 +1,5 @@
-from abc import ABC, abstractmethod
-
+from pa.llm.base import LLM
 from llama_cpp import Llama
-
-
-class LLM(ABC):
-    def __init__(self, model_type: str) -> None:
-        self.type = model_type
-        
-    @abstractmethod
-    def generate_response(self, query: str, config: dict = {}) -> str:
-        pass
 
 
 class LlamaLLM(LLM):
@@ -62,4 +52,3 @@ class LlamaLLM(LLM):
             print(response_processed)
             
         return response_processed
-            
