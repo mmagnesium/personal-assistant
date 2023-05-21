@@ -5,5 +5,5 @@ class LLM(ABC):
         self.type = model_type
         
     @abstractmethod
-    def generate_response(self, query: str, config: dict = {}) -> str:
+    def generate_response(self, query: str) -> str:
         pass

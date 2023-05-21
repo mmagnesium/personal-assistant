@@ -7,7 +7,7 @@ class LlamaLLM(LLM):
     DEFAULT_MAX_TOKENS: int = 256
     DEFAULT_TEMPERATURE: float = 0.8
     DEFAULT_TOP_P: float = 0.95
-    DEFAULT_STREAM: bool = False
+    DEFAULT_STREAM: bool = True
     
     def __init__(self, model_path: str, n_gpu_layers:int, n_ctx:int, 
                  verbose=True) -> None:
