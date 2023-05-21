@@ -1,5 +1,7 @@
 # Personal Assistant: RetirvalQA
 
+## Description
+
 Partially based on the [privateGPT](https://github.com/imartinez/privateGPT) project.
 However, the main chain was written from scratch to speed up the inference. Not sure why LangChains implementation is so slow, like 25 seconds of prompt evaluatuion in LlamaCpp model (vs. 2-4 seconds when queried directly)
 
@@ -13,6 +15,15 @@ The main retrieval chain logic:
    - reviewes the retrievers' respond with respect to the context and user question
    - imporoves it, and
    - returns to the user
+
+## Implementation progress
+
+- [x] Simple retrieval QA functionality
+- [ ] What is wrong with LangChain, why so slow?
+- [ ] Add extra tools
+- [ ] Obsidian integration?
+- [ ] Docker
+- [ ] ...
 
 ## Installation
 
