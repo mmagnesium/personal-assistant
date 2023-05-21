@@ -4,4 +4,3 @@ sentence_transformers
 InstructorEmbedding
 huggingface_hub
 transformers
-llama-cpp-python

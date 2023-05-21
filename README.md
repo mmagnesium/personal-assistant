@@ -54,6 +54,12 @@ conda activate pa
 pip install -f requirements.txt
 ```
 
+Then install `llamacpp-python` witu cuBLAS:
+
+```bash
+CMAKE_ARGS="-DLLAMA_CUBLAS=on" FORCE_CMAKE=1 pip install llama-cpp-python
+```
+
 ### Prepare the files
 
 Create `files` folder to put the source documents in.
