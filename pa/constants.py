@@ -4,8 +4,8 @@ from chromadb.config import Settings
 
 load_dotenv()
 
-# Define the folder for storing database
-PERSIST_DIRECTORY = os.environ.get('PERSIST_DIRECTORY')
+PERSIST_DIRECTORY = os.environ.get('PERSIST_DIRECTORY', './db')
+SOURCE_DIRECTORY = os.environ.get('SOURCE_DIRECTORY', './files')
 
 CHROMA_SETTINGS = Settings(
         chroma_db_impl='duckdb+parquet',
