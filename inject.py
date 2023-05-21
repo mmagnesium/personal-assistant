@@ -1,29 +1,18 @@
-from langchain.vectorstores import Chroma, FAISS
-from chromadb.config import Settings
+import glob
+import os
 
+from pa.constants import CHROMA_SETTINGS, PERSIST_DIRECTORY, SOURCE_DIRECTORY
+
+from langchain.vectorstores import Chroma
 from langchain.text_splitter import RecursiveCharacterTextSplitter
-
 from langchain.document_loaders import (
     PDFMinerLoader,
     UnstructuredMarkdownLoader,
     UnstructuredHTMLLoader
     )
-
 from langchain.document_loaders import DirectoryLoader
-
 from langchain.embeddings import HuggingFaceInstructEmbeddings
 
-import os
-import glob
-
-from dotenv import load_dotenv
-
-from constants import CHROMA_SETTINGS
-
-load_dotenv()
-
-PERSIST_DIRECTORY = os.environ.get('PERSIST_DIRECTORY')
-SOURCE_DIRECTORY = os.environ.get('SOURCE_DIRECTORY', './files')
 
 LOADER_MAPPING = {
     ".md": (UnstructuredMarkdownLoader, {}),
