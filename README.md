@@ -29,7 +29,12 @@ The main retrieval chain logic:
 
 Download the desired model from <https://huggingface.co/> to the `models` folder. For now, the model should be in the `ggml` format to be compatible with LlaMaCpp model interface.
 
-Example of a suitable model: TheBloke/wizard-mega-13B-GGML [link](https://huggingface.co/TheBloke/wizard-mega-13B-GGML)
+Examples of tested models:
+
+- TheBloke/wizard-mega-13B-GGML [link](https://huggingface.co/TheBloke/wizard-mega-13B-GGML)
+- **TheBloke/Manticore-13B-GGML** [link](https://huggingface.co/TheBloke/Manticore-13B-GGML) - update of the wizard-lm, makes it more versitile and robust
+
+You can use a quantized version with whatever number of bits, as long as it is in `ggml` format and supported by Llama-cpp.
 
 ### Create a python environment with Python 3.10+
 
