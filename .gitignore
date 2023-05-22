@@ -6,3 +6,5 @@ db/*
 .env
 .python-version
 misc/*
+*.egg*/*
+build/

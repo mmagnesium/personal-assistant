@@ -65,6 +65,12 @@ Then install `llamacpp-python` witu cuBLAS:
 CMAKE_ARGS="-DLLAMA_CUBLAS=on" FORCE_CMAKE=1 pip install llama-cpp-python
 ```
 
+Then you can install the `pa` package itself:
+
+```bash
+pip install .
+```
+
 ### Prepare the files
 
 Create `files` folder to put the source documents in.
