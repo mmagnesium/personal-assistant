@@ -14,9 +14,8 @@ CHROMA_SETTINGS = Settings(
 )
 
 retriever_tempate = '''### Instruction: Use the following pieces of context to answer the question at the end. 
-If you don't know the answer, just say that you don't know, don't try to make up an answer. Try to be as precise as possible. The response should be helpful and informative, but concise. 
-Try to formulate the qeustions to the context, that would help to find the answer on the question.
-Dont include original context text in your response, only use your own words. Give the final answer in a form of the context summary.
+If you don't know the answer, just say that you don't know, don't try to make up an answer. The response should be helpful and informative, but concise. 
+Give the final answer in a form of the context summary with respect to the question at the end.
 
 {context_proc}
 
@@ -26,8 +25,8 @@ Question: {question}
 
 resolver_template = '''### Instruction: You are the reviewer tasked to evaluate the correctness of the provided response, based on the query and context.
 Make sure that the context and response baised on it (provided below) are corrent and relevant to the query.
-If the response is not based on the context, or the context is irrelevant, reject it and respond with "The response of the retrieval agent is incorrect".
-If the response and the context are correct, finilize it. Ensure that the final response is concise, helpful and factual.
+If the response is aligned with the question and the context then finilize it, otherwise correct it. If both the response and the context are irrelevant to the question, respond with "The response is incorrect".
+Ensure that the final response is concise, helpful and factual. Dont include the context or original response in your final response, just evaluate and improve on it. 
 
 Question: {question}
 
@@ -35,4 +34,4 @@ Context: {context}
 
 Response: {response}
 
-### Assistant: Let' work this out in a step-by-step manner, to ensure that we understant the reponse and user query correctly:'''
+### Assistant: Let' work this out in a step-by-step manner, to ensure that we understant the reponse, the context, and user query correctly.'''
