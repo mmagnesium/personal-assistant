@@ -6,6 +6,8 @@ load_dotenv()
 
 PERSIST_DIRECTORY = os.environ.get('PERSIST_DIRECTORY', './db')
 SOURCE_DIRECTORY = os.environ.get('SOURCE_DIRECTORY', './files')
+OPENAI_API_KEY = os.environ.get('OPENAI_API_KEY')
+
 
 CHROMA_SETTINGS = Settings(
         chroma_db_impl='duckdb+parquet',
@@ -35,3 +37,22 @@ Context: {context}
 Response: {response}
 
 ### Assistant: Let' work this out in a step-by-step manner, to ensure that we understant the reponse, the context, and user query correctly.'''
+
+guidance_resolver_template = '''You are the reviewer tasked to evaluate the correctness of the provided response, based on the question and context.
+Make sure that the context and response baised on it (provided below) are corrent and relevant to the query. 
+Please, answer with a single word, either "Yes", "No", or "Maybe" based on the response relevance.
+
+Question: {{question}}
+
+Context: {{context}}
+
+Response: {{response}}
+
+Response review:{{#select "answer" logprobs='logprobs'}} Yes{{or}} No{{or}} Maybe{{/select}}
+
+Finilize the response provided above and return it in a form of concise summary. Take into account the review of the response.
+If the response is irrelevant, try to correct it using the context. 
+If the context is irrelevant, then answer with "The response and context are irrelevant".
+
+Final respose: {{gen 'final_response' temperature=0.2 max_tokens=256}}
+'''

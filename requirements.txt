@@ -4,3 +4,5 @@ sentence_transformers
 InstructorEmbedding
 huggingface_hub
 transformers
+openai
+guidance
